@@ -8,6 +8,9 @@ call plug#begin('$HOME/.vim/plugged')
 " Syntax
 Plug 'sheerun/vim-polyglot'
 
+" Editorconfig (Respect .editorconfig settings like indenting)
+Plug 'editorconfig/editorconfig-vim'
+
 " Theme
 Plug 'tomasr/molokai' 
 
