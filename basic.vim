@@ -1,5 +1,5 @@
 " Update:
-" PlugUpgrade 
+" PlugUpgrade
 " PlugUpdate
 " CocUpdate
 " TSUpdate
@@ -97,9 +97,9 @@ let maplocalleader = "\\"
 
 " Lines
 nnoremap <C-l> g_
-vnoremap <C-l> g_
+xnoremap <C-l> g_
 nnoremap <C-h> ^
-vnoremap <C-h> ^
+xnoremap <C-h> ^
 
 " Buffers
 nnoremap <C-j> :bn<CR>
@@ -167,12 +167,12 @@ nnoremap <leader>l _vg_
 nnoremap <leader>a ggVG
 
 " Move lines in visual mode
-vnoremap N :m '>+1<CR>gv=gv
-vnoremap P :m '<-2<CR>gv=gv
+xnoremap N :m '>+1<CR>gv=gv
+xnoremap P :m '<-2<CR>gv=gv
 
 " J K just move
-vnoremap J j
-vnoremap K k
+xnoremap J j
+xnoremap K k
 
 """""""""""
 " Quick fix
@@ -191,7 +191,7 @@ nnoremap <leader>cc :cclose<CR>;
 nnoremap Q @q
 
 " Execute macro q on visual selection
-vnoremap Q :normal @q<CR>
+xnoremap Q :normal @q<CR>
 
 """""""""""""""""""""""
 " Clipboard / registers
@@ -203,7 +203,7 @@ nnoremap Y y$
 " Fix issues when pasting a lot of code
 nnoremap F2 :set pastetoggle<CR>
 
-" ALWAYS use the clipboard for ALL operations 
+" ALWAYS use the clipboard for ALL operations
 set clipboard+=unnamedplus,unnamed
 
 " Don't lose clipboard when pasting
@@ -217,9 +217,9 @@ nnoremap <leader>c "_c
 " Delete all registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
-if (has("nvim")) 
+if (has("nvim"))
   " Fixes copying special chars
-  lang en_US 
+  lang en_US
 endif
 
 """"""""""""""""
@@ -237,7 +237,7 @@ nmap * *N
 nmap # #N
 
 " * search selection (uses z register)
-vnoremap * "zy:set hlsearch<cr>:let @z=escape(@z,'\\/')<cr>:let @/='\V'.@z<cr>
+xnoremap * "zy:set hlsearch<cr>:let @z=escape(@z,'\\/')<cr>:let @/='\V'.@z<cr>
 
 " <leader>r replace, repeat with .
 nmap <leader>r viw*cgn
@@ -304,7 +304,7 @@ endif
 
 " Save
 nnoremap <C-s> :w!<CR>
-vnoremap <C-s> <Esc>:w!<CR>
+xnoremap <C-s> <Esc>:w!<CR>
 inoremap <C-s> <Esc>:w!<CR>
 
 " Refresh
@@ -320,7 +320,7 @@ command! SaveAsNative :call SaveAsNative()
 if (has('win32') || has('win64'))
   nnoremap <leader>e :!start explorer /e,%:p:h<CR>
   nnoremap <leader>E :execute "!start explorer /e," . shellescape(getcwd(),1)<CR>
-endif 
+endif
 
 if(has('unix'))
   if(has('macunix'))
@@ -353,12 +353,12 @@ cnoremap ^^ <C-R>=fnameescape(expand("%:p"))<CR>
 cnoremap && <C-R>=fnameescape(expand("%:t"))<CR>
 
 " Insert filename
-nnoremap <localleader>fn :let @z=expand('%:t')<Cr>"zp 
-imap <localleader>fn <esc><localleader>fn 
+nnoremap <localleader>fn :let @z=expand('%:t')<Cr>"zp
+imap <localleader>fn <esc><localleader>fn
 
 " Insert other window filename
-nnoremap <localleader>wn <C-w><C-w>:let @z=expand('%:t')<Cr><C-w><C-w>"zp 
-imap <localleader>wn <esc><localleader>wn 
+nnoremap <localleader>wn <C-w><C-w>:let @z=expand('%:t')<Cr><C-w><C-w>"zp
+imap <localleader>wn <esc><localleader>wn
 
 " Duplicate File
 function! s:duplicate(name)
@@ -376,9 +376,9 @@ endfunction
 " Repeat last command
 nnoremap g. @:
 
-if (has("nvim")) 
+if (has("nvim"))
   " Shows the effects of a command incrementally, as you type.
-  set inccommand=nosplit 
+  set inccommand=nosplit
 endif
 
 """""""""""""""""""""""""
@@ -427,8 +427,8 @@ command! SpacesClean :call DeleteTrailingWhiteSpace() | call DoubleSpacesRemove(
 augroup filetypes
   autocmd!
 
-  " PHP 
-  autocmd BufReadPost *.php setlocal iskeyword-=- 
+  " PHP
+  autocmd BufReadPost *.php setlocal iskeyword-=-
 
   " Blade filetype
   autocmd BufRead,BufNewFile *.blade.php set filetype=blade
@@ -484,8 +484,8 @@ nnoremap gx :call OpenURLUnderCursor()<CR>
 " g flag: repeat on each match in the line
 " n report matches only, don't make any substitutions
 " e no errors please
-" The |submatch()| function can be used to obtain matched text.  The whole matched text can be accessed with submatch(0) 
-" read more 
+" The |submatch()| function can be used to obtain matched text.  The whole matched text can be accessed with submatch(0)
+" read more
 " :h substitute
 " :h s_flags
 " :h submatch()

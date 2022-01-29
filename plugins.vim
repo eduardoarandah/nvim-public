@@ -12,7 +12,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 
 " Theme
-Plug 'tomasr/molokai' 
+Plug 'tomasr/molokai'
 
 " Color
 set background=dark
@@ -36,14 +36,14 @@ Plug 'tpope/vim-surround'
 nmap <localleader>t yslt
 imap <localleader>t <C-o>yslt
 
-" Git fugitive 
+" Git fugitive
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>ga :Git add %<cr>
 nnoremap <leader>gA :Git add -A<cr>
 nnoremap <leader>gl :Git log<cr>
 nnoremap <leader>gL :Git log --name-only<cr>
-nnoremap <leader>gp :Git push<cr> 
+nnoremap <leader>gp :Git push<cr>
 command! Gammend :Git commit --amend
 
 " git diff (:Gdiffsplit! for merge conflicts)
@@ -59,17 +59,17 @@ command! Ghistory :Gclog
 " Commits for current file
 command! Ghistoryfile :0Gclog!
 
-" Shows a git diff in the sign column. 
+" Shows a git diff in the sign column.
 Plug 'mhinz/vim-signify'
 
-" Maximizes and restores the current window in Vim. 
+" Maximizes and restores the current window in Vim.
 Plug 'szw/vim-maximizer'
 nnoremap <leader>z :MaximizerToggle<CR>
-vnoremap <leader>z :MaximizerToggle<CR>gv
+xnoremap <leader>z :MaximizerToggle<CR>gv
 
 " NerdTree
 Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTree' ] }
-let NERDTreeShowHidden=1 
+let NERDTreeShowHidden=1
 nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F8> :NERDTreeFind<CR>
 
@@ -77,7 +77,7 @@ nnoremap <F8> :NERDTreeFind<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:NERDTreeCWD<CR>
 
 " Auto close brackets
-Plug 'jiangmiao/auto-pairs' 
+Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsShortcutToggle=''
 let g:AutoPairsMapCh=0 " don't map this one
 
@@ -87,7 +87,7 @@ let g:rg_command='rg --vimgrep --pcre2'
 
 " Sessions
 Plug 'xolox/vim-misc' "requirement
-Plug 'romgrk/vim-session' 
+Plug 'romgrk/vim-session'
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_directory = $HOME."/.vim/sessions"
@@ -97,9 +97,9 @@ let g:session_extension = ''
 call mkdir($HOME."/.vim/sessions","p")
 
 " Open session (project)
-nnoremap <leader>s :OpenSession 
+nnoremap <leader>s :OpenSession
 
-" Highlight yank 
+" Highlight yank
 Plug 'machakann/vim-highlightedyank'
 
 " Status/tabline
@@ -114,7 +114,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'defx|gundo|nerd_tree|startify|tagbar|undotree|vimfiler'
 
 " Useful commands
-Plug 'tpope/vim-eunuch' 
+Plug 'tpope/vim-eunuch'
 " :Delete: Delete a buffer and the file on disk simultaneously.
 " :Unlink: Like :Delete, but keeps the now empty buffer.
 " :Move: Rename a buffer and the file on disk simultaneously.
@@ -132,14 +132,14 @@ Plug 'tpope/vim-eunuch'
 " New init scripts are automatically prepopulated with /etc/init.d/skeleton.
 
 " Calculate simple formulas
-Plug 'sk1418/HowMuch' 
-let g:HowMuch_scale = 8 
+Plug 'sk1418/HowMuch'
+let g:HowMuch_scale = 8
 nmap <leader>hm V<Plug>AutoCalcAppendWithEq
 vmap <leader>hm <Plug>AutoCalcAppendWithEq
 vmap <leader>hms <Plug>AutoCalcAppendWithEqAndSum
 vmap <leader>hmr <Plug>AutoCalcReplace
 
-" FZF Fuzzy Finder 
+" FZF Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -157,7 +157,7 @@ nnoremap <C-p> :Files<CR>
 function! ChangeFZFDir()
   let g:dir=expand('%:h')
   nnoremap <C-p> :Files <c-r>=g:dir<CR><CR>
-  echo 'FZF files dir changed to: '. g:dir 
+  echo 'FZF files dir changed to: '. g:dir
 endfunction
 
 nnoremap <leader>cz :call ChangeFZFDir()<CR>
@@ -189,7 +189,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'ap/vim-css-color', { 'for': [ 'css', 'scss' ] }
 
 " Change case (casing)
-Plug 'arthurxavierx/vim-caser' 
+Plug 'arthurxavierx/vim-caser'
 " gsp PascalCase
 " gsc camelCase
 " gs_ snake_case
@@ -213,20 +213,20 @@ endfunction
 command! -range Case :call Case()
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php'] } 
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php'] }
 let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
 
 " REPL, send commands to another window
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 
-" target_pane  
-" {last} current window, last pane, 
+" target_pane
+" {last} current window, last pane,
 " :.2 current window, second pane
 " %pane_id get it with echo $TMUX_PANE
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{last}"}
@@ -238,10 +238,10 @@ nmap <F9> <Plug>SlimeParagraphSend
 " lua format
 Plug 'andrejlevkovitch/vim-lua-format'
 
-""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""
 " CoC Code Completion
-" https://github.com/neoclide/coc.nvim 
-"""""""""""""""""""""""""""""""""""""""""" 
+" https://github.com/neoclide/coc.nvim
+""""""""""""""""""""""""""""""""""""""""""
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -304,7 +304,7 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" navigate diagnostics `[g` and `]g` 
+" navigate diagnostics `[g` and `]g`
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -336,7 +336,7 @@ nmap <localleader>r <Plug>(coc-rename)
 
 " Global search
 noremap <localleader>s yiw:CocSearch <C-r>"<CR>
-vnoremap <localleader>s y<esc>:CocSearch <C-r>"<CR>
+xnoremap <localleader>s y<esc>:CocSearch <C-r>"<CR>
 
 " Range format like <leader>fip
 vmap <localleader>f <Plug>(coc-format-selected)
@@ -447,7 +447,7 @@ nnoremap <leader>u :CocCommand snippets.editSnippets<CR>
 " 'stylelint.enable': true,
 " 'stylelint.config': '~/.stylelint'
 " }
-" 
+"
 
 call plug#end()
 
