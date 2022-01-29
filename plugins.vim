@@ -38,12 +38,11 @@ imap <localleader>t <C-o>yslt
 
 " Git fugitive
 Plug 'tpope/vim-fugitive'
-nnoremap <leader>gs :Git<cr>
-nnoremap <leader>ga :Git add %<cr>
-nnoremap <leader>gA :Git add -A<cr>
-nnoremap <leader>gl :Git log<cr>
-nnoremap <leader>gL :Git log --name-only<cr>
-nnoremap <leader>gp :Git push<cr>
+nnoremap gs :Git<cr>
+nnoremap ga :Git add %<cr>
+nnoremap gA :Git add -A<cr>
+nnoremap gl :Git log<cr>
+nnoremap gp :Git push<cr>
 command! Gammend :Git commit --amend
 
 " git diff (:Gdiffsplit! for merge conflicts)
@@ -190,16 +189,18 @@ Plug 'ap/vim-css-color', { 'for': [ 'css', 'scss' ] }
 
 " Change case (casing)
 Plug 'arthurxavierx/vim-caser'
-" gsp PascalCase
-" gsc camelCase
-" gs_ snake_case
-" gsU UPPER_CASE
-" gst Title Case
-" gss Sentence case
-" gs<space> space case
-" gs- dash-case
-" gsK Title-Dash-Case
-" gs. dot.case
+let g:caser_no_mappings = 1
+" let g:caser_prefix = 'gs'
+" p PascalCase
+" c camelCase
+" _ snake_case
+" U UPPER_CASE
+" t Title Case
+" s Sentence case
+" <space> space case
+" - dash-case
+" K Title-Dash-Case
+" . dot.case
 
 " Visual select and change case
 function! Case()
@@ -211,6 +212,8 @@ function! Case()
    endif
 endfunction
 command! -range Case :call Case()
+xnoremap <leader>c :call Case()<cr>
+
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
