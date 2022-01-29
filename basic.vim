@@ -14,8 +14,8 @@ filetype off " basic
 filetype plugin on " Enable filetype plugins
 filetype indent on " Enable loading the indent file for specific file types
 syntax enable " Enable syntax highlighting
-set redrawtime=2000 " After this milliseconds, stop processing syntax
-set maxmempattern=1000000 " Max memory for syntax in Kb
+set redrawtime=5000 " After this milliseconds, stop processing syntax
+" set maxmempattern=1000000 " Max memory for syntax in Kb
 set encoding=utf-8 " Encoding (needed in youcompleteme)
 set fileencoding=utf-8 " The encoding written to file.
 set noerrorbells " No annoying sound on errors
@@ -207,7 +207,7 @@ nnoremap F2 :set pastetoggle<CR>
 set clipboard+=unnamedplus,unnamed
 
 " Don't lose clipboard when pasting
-vnoremap p pgvy
+xnoremap p pgvy
 
 " delete/change without changing clipboard
 nnoremap <leader>x "_x
