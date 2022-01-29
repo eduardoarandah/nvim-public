@@ -42,8 +42,7 @@ nnoremap gs :Git<cr>
 nnoremap ga :Git add %<cr>
 nnoremap gA :Git add -A<cr>
 nnoremap gl :Git log<cr>
-nnoremap gp :Git push<cr>
-command! Gammend :Git commit --amend
+nnoremap <leader>gp :Git push<cr>
 
 " git diff (:Gdiffsplit! for merge conflicts)
 nnoremap <leader>gd :Gdiffsplit<cr>
