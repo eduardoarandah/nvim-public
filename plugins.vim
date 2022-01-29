@@ -42,6 +42,7 @@ nnoremap <leader>gs :Git<cr>
 nnoremap <leader>ga :Git add %<cr>
 nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gl :Git log<cr>
+nnoremap <leader>gL :Git log --name-only<cr>
 nnoremap <leader>gA :Git add -A<cr>
 nnoremap <leader>gco :Git checkout<space>
 nnoremap <leader>gcb :Git checkout -b<space>
