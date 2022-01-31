@@ -8,6 +8,11 @@ call plug#begin('$HOME/.vim/plugged')
 " Syntax
 Plug 'sheerun/vim-polyglot'
 
+if(!has('nvim'))
+" Highlight yank 
+Plug 'machakann/vim-highlightedyank'
+endif
+
 " Theme
 Plug 'tomasr/molokai'
 set background=dark
