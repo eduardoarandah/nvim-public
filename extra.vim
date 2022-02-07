@@ -42,8 +42,8 @@ command! Fix :call Fix()
 " Edit Vimrc
 """""""""""""""""""""""""
 
-:command! Vrc e $HOME/.config/nvim/basic.vim | e $HOME/.config/nvim/plugins.vim | e $HOME/.config/nvim/extra.vim
-:command! VrcReload so $HOME/.config/nvim/basic.vim | so $HOME/.config/nvim/plugins.vim | so $HOME/.config/nvim/extra.vim
+:command! Vrc e $HOME/.config/vim/basic.vim | e $HOME/.config/vim/plugins.vim | e $HOME/.config/vim/extra.vim
+:command! VrcReload so $HOME/.config/vim/basic.vim | so $HOME/.config/vim/plugins.vim | so $HOME/.config/vim/extra.vim
 
 """""""""""""""""""
 " CSS

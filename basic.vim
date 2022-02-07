@@ -70,33 +70,12 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildcharm=<tab>
 
 " Directories. Separate vim and neovim to avoid conflicts on format
-if(has('nvim'))
-  call mkdir($HOME."/.vim/nvimtmp","p") " Create dir if not exists
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
-  let &packpath = &runtimepath
-  set backupdir=$HOME/.vim/nvimtmp//
-  set directory=$HOME/.vim/nvimtmp//
-  set undodir=$HOME/.vim/nvimtmp//
-  command! Tmpfilesremove !rm ~/.vim/nvimtmp/*
-else
-  call mkdir($HOME."/.vim/tmp","p") " Create dir if not exists
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
-  set backupdir=$HOME/.vim/tmp//
-  set directory=$HOME/.vim/tmp//
-  set undodir=$HOME/.vim/tmp//
-  command! Tmpfilesremove !rm ~/.vim/tmp/*
-endif
-
-"""""""""""""""""
-" Highlight yanks
-"""""""""""""""""
-
-if(has('nvim'))
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
-  augroup END
-endif
+call mkdir($HOME."/.vim/tmp","p") " Create dir if not exists
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set backupdir=$HOME/.vim/tmp//
+set directory=$HOME/.vim/tmp//
+set undodir=$HOME/.vim/tmp//
+command! Tmpfilesremove !rm ~/.vim/tmp/*
 
 " Leader Key
 let mapleader=" "
@@ -227,11 +206,6 @@ nnoremap <leader>c "_c
 
 " Delete all registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-
-if (has("nvim"))
-  " Fixes copying special chars
-  lang en_US
-endif
 
 """"""""""""""""
 " Search replace
@@ -386,11 +360,6 @@ endfunction
 
 " Repeat last command
 nnoremap g. @:
-
-if (has("nvim"))
-  " Shows the effects of a command incrementally, as you type.
-  set inccommand=nosplit
-endif
 
 """""""""""""""""""""""""
 " Code formatting

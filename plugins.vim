@@ -8,15 +8,13 @@ call plug#begin('$HOME/.vim/plugged')
 " Syntax
 Plug 'sheerun/vim-polyglot'
 
-if(!has('nvim'))
 " Highlight yank 
 Plug 'machakann/vim-highlightedyank'
-endif
 
 " Theme
 Plug 'tomasr/molokai'
 set background=dark
-set termguicolors
+" set termguicolors
 
 " if terminal has 256 colors
 if !has("gui_running")
@@ -240,6 +238,8 @@ Plug 'andrejlevkovitch/vim-lua-format'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+let g:coc_global_config="$HOME/.config/vim/coc-settings.json"
+
 let g:coc_filetype_map = { 'blade.php': 'blade', }
 
 " Install if not installed
@@ -451,53 +451,3 @@ colorscheme molokai
 
 " Better cursor highlighting
 " hi Search cterm=NONE ctermfg=255 guifg=#eeeeee ctermbg=88 guibg=#870000
-
-" treesitter enable
-" if (has("nvim"))
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed ={ "javascript", "json", "css", "php", "html", "python", "bash", "regex", "ruby", "yaml", "jsonc", "tsx", "lua", "vue" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   highlight = {
-"     enable = true,
-"     disable = { "php" },  -- list of language that will be disabled
-"   },
-"   indent = {
-"     enable = false
-"   },
-"   context_commentstring = {
-"     enable = true
-"   }
-" }
-" EOF
-" endif
-
-" disable = { "php" },  -- list of language that will be disabled
-" context_commentstring = {
-    " enable = true,
-    " config = {
-    " php = {
-    "   element = "XXXX %s ",
-    "   start_tag = "YYYYYYY %s zzz",
-    "   attribute = "ZZZZZZz %s zzz",
-    "   html = "111111 %s zzz"
-    " }
-    " }
-  " },
-  " playground = {
-    " enable = true,
-    " disable = {},
-    " updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    " persist_queries = false, -- Whether the query persists across vim sessions
-    " keybindings = {
-    "   toggle_query_editor = 'o',
-    "   toggle_hl_groups = 'i',
-    "   toggle_injected_languages = 't',
-    "   toggle_anonymous_nodes = 'a',
-    "   toggle_language_display = 'I',
-    "   focus_language = 'f',
-    "   unfocus_language = 'F',
-    "   update = 'R',
-    "   goto_node = '<cr>',
-    "   show_help = '?',
-    " },
-  " }
