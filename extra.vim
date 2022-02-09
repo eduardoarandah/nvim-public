@@ -49,9 +49,6 @@ command! Fix :call Fix()
 " CSS
 """""""""""""""""""
 
-" go class
-nnoremap <localleader>c 0?class<cr>2f":noh<cr>
-
 " tc To BEM Class
 nnoremap <leader>tb I&__<ESC>A{}<ESC>
 
@@ -159,9 +156,6 @@ command PhpIfToBlade :norm 0f{%S@endifD0:s/<?php if/@if
 " html
 """""""""""""""
 
-" go to class
-nnoremap \c ?class<CR>2f":noh<CR>
-
 command! LoremHtml :r!curl -Ns https://loripsum.net/api/10/medium/headers/decorate/link/ul/ol/bq/
 
 """""""""""""""
@@ -173,10 +167,6 @@ command! LoremHtml :r!curl -Ns https://loripsum.net/api/10/medium/headers/decora
 """""""""""""""""""""""""
 " Open script
 """""""""""""""""""""""""
-
-" Generate password
-noremap <localleader>p :r!pwgen -sN 1 40<cr>
-inoremap <localleader>p <esc>:r!pwgen -sN 1 40<cr>i
 
 " Search on relevant directories
 command! Clientes :Files ~/clientes
