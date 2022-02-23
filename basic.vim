@@ -127,7 +127,7 @@ nnoremap <leader>q :bd<CR>
 nnoremap <leader>Q :bd!<CR>
 
 " just die please
-nnoremap <leader>gq :qa!<CR>
+nnoremap <localleader>q :qa!<CR>
 
 " write
 nnoremap <leader>w :w!<CR>
@@ -357,6 +357,14 @@ endfunction
 
 " Repeat last command
 nnoremap g. @:
+
+"""""""""""""""""""""""""
+" motions
+"""""""""""""""""""""""""
+
+" operator pending motion: yil to yank inside line
+xnoremap il ^og_
+onoremap <silent> il :normal vil<CR>
 
 """""""""""""""""""""""""
 " Code formatting
